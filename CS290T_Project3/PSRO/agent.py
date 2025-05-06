@@ -39,7 +39,7 @@ def epsilon_greedy_policy(Q, epsilon, state, nA):
         A = np.argmax(Q[state][:nA])
     return A
 
-def tabular_Q(env, num_steps, Q=None, discount=0.9, epsilon=0.1, alpha=0.5, eval_interval=1000, n_ternimal=1):
+def tabular_Q(env, num_steps, Q=None, discount=0.9, epsilon=0.1, alpha=0.5, eval_interval=10, n_ternimal=1):
     if Q is None:
         Q = np.random.randn(env.observation_space.n,env.action_space.n)*1e-2
         Q[-n_ternimal:] = 0 # terminal states to 0
@@ -58,7 +58,7 @@ def tabular_Q(env, num_steps, Q=None, discount=0.9, epsilon=0.1, alpha=0.5, eval
 
         G = 0
         state, info = env.reset()
-
+        # breakpoint()
         for t in itertools.count():
             i_steps += 1
 
