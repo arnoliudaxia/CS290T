@@ -1,0 +1,7 @@
+coloredlogs
+tensorboard
+torch<2
+numpy<2
+tqdm
+typing_extensions
+ipykernel
